@@ -1,0 +1,87 @@
+---
+# ============================================================
+#  C++20 Backend Service Style Guide
+#  Base: LLVM
+# ============================================================
+
+Language: Cpp
+BasedOnStyle: LLVM
+Standard: c++20
+
+# ============================================================
+# 1. Global Layout
+# ============================================================
+
+IndentWidth: 2
+TabWidth: 2
+UseTab: Never
+ColumnLimit: 100
+
+MaxEmptyLinesToKeep: 2
+
+# ============================================================
+# 2. Pointer & Reference Style
+# ============================================================
+
+PointerAlignment: Left # int* ptr
+ReferenceAlignment: Pointer # int& ref
+
+# ============================================================
+# 3. Brace Wrapping
+# ============================================================
+
+BreakBeforeBraces: Attach
+
+# ============================================================
+# 4. Control & Function Layout
+# ============================================================
+
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+AllowShortEnumsOnASingleLine: false
+
+SpacesInAngles: false
+BreakTemplateDeclarations: Yes
+BreakBeforeConceptDeclarations: true
+
+BinPackParameters: false
+BinPackArguments: false
+
+# 4lines to fix function parameters.
+AlignAfterOpenBracket: BlockIndent
+ContinuationIndentWidth: 2
+AllowAllArgumentsOnNextLine: true
+AllowAllParametersOfDeclarationOnNextLine: true
+
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
+
+SpaceBeforeParens: ControlStatements
+
+BreakAfterReturnType: None
+
+# ============================================================
+# 5. Include Management Policy
+# ============================================================
+
+SortIncludes: true
+IncludeBlocks: Regroup
+
+IncludeCategories:
+  - Regex: "^<(algorithm|array|atomic|chrono|cmath|condition_variable|cstdint|deque|functional|future|iostream|map|memory|mutex|optional|queue|set|string|thread|tuple|unordered_map|unordered_set|utility|vector)>"
+    Priority: 1
+  - Regex: "^<(boost|fmt|spdlog)/.*>"
+    Priority: 2
+  - Regex: "^<(gtest|gmock)/.*>"
+    Priority: 3
+  - Regex: '^"public/.*'
+    Priority: 4
+  - Regex: ".*"
+    Priority: 5
+
+# ============================================================
+# 6. Namespace Rules
+# ============================================================
+
+NamespaceIndentation: None
+FixNamespaceComments: true
